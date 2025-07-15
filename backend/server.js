@@ -19,7 +19,9 @@ await connectCloudinary();
 // CORS config for frontend origins
 const allowedOrigins = [
   'http://localhost:5174',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://prescripto-admin-rose.vercel.app',
+  'https://prescripto-front-ecru.vercel.app'
 
   ];
 
