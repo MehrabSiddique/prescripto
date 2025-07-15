@@ -54,9 +54,9 @@ toast.error(data.message)
     
 }
 
-const getAllAppointments = async(docId) => {
+const getAllAppointments = async() => {
     try {
-        const {data} = await axios.get(backendUrl + '/api/admin/appointments',{docId}, {headers: {aToken}})
+        const {data} = await axios.get(backendUrl + '/api/admin/appointments', {headers: {aToken}})
 if(data.success){
  setAppointments(data.appointments)
  
@@ -75,7 +75,7 @@ toast.error(data.message)
 const cancelAppointment = async(appointmentId) =>{
 
     try {
-        const {data} = await axios.post(backendUrl+ 'api/admin/cancel-appointment' , {appointmentId}, {headers:{aToken }})
+        const {data} = await axios.post(backendUrl+ '/api/admin/cancel-appointment' , {appointmentId}, {headers:{aToken }})
         if (data.success){
            toast.success(data.userData)
            getAllAppointments()
@@ -96,7 +96,7 @@ const cancelAppointment = async(appointmentId) =>{
 const getdashData = async() =>{
 
     try {
-        const {data} = await axios.post(backendUrl+ 'api/admin/dashboard' , {headers:{aToken }})
+        const {data} = await axios.post(backendUrl+ '/api/admin/dashboard' , {headers:{aToken }})
         if (data.success){
            setDashData(data.dashData)
          

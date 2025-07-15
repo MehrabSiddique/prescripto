@@ -21,7 +21,7 @@ const changeAvailability = async (req, res) => {
   }
 
 }
-const doctorsList = async (req, res) => {
+const doctorList = async (req, res) => {
   try {
 
     const doctors = await doctorModel.find({}).select(['-password', '-email'])
@@ -208,6 +208,6 @@ const updateDoctorProfile = async (req, res) => {
 };
 
 
-export { changeAvailability, doctorsList, loginDoctor, 
+export { changeAvailability, doctorList, loginDoctor, 
   appointmentsDoctor, appointmentCancel, appointmentComplete, 
   doctorDashboard , doctorProfile , updateDoctorProfile }

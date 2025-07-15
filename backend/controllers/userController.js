@@ -39,9 +39,7 @@ const registerUser = async (req, res) => {
     const newUser = new userModel(userData)
     const user = await newUser.save()
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
-    });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET )
     res.json({
       success: true, token
     });
@@ -57,12 +55,7 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
-      return res.json({
-        success: false,
-        message: "Email and Password are required",
-      });
-    }
+    
 
     const user = await userModel.findOne({ email });
     if (!user) {
@@ -72,9 +65,7 @@ const loginUser = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (isMatch) {
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-        expiresIn: "7d",
-      })
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET )
      return res.json({
         success: true, token
       });
@@ -119,13 +110,13 @@ const getProfile = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    const {userId,name,address,phone,dob,gender} = req.body;
+    const {userId,name,address,phone,dob,gender} = req.body
     const imageFile = req.file
 
     if (!name || !phone || !gender || !dob) {
       return res.json({ success: false, message: "Missing Data" });
     }
-    await userModel.findByIdAndUpdate(userId,{name,address: JSON.parse(address),phone   }).select("-password");
+    await userModel.findByIdAndUpdate(userId,{name,address: JSON.parse(address),phone ,dob,gender  });
 
   if (imageFile){
     const imageUpload = await cloudinary.uploader.upload(imageFile.path,{resource_type:'image'})

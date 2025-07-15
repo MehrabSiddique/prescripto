@@ -62,7 +62,7 @@ const loadUserProfileData = async()=>{
 
  const value = {
         doctors, userData, setUserData, currencySymbol,
-        backendUrl,getDoctorsData , loadUserProfileData ,
+        backendUrl , loadUserProfileData ,
         token, setToken
     }
 
@@ -70,13 +70,16 @@ const loadUserProfileData = async()=>{
     useEffect(()=>{
         if(token){
             getDoctorsData()
-        } else{
-            setUserData(false)
+       
         }
         },[])
 
          useEffect(()=>{
- loadUserProfileData ()
+            if(token){
+ loadUserProfileData ()}
+ else{
+    setUserData(false)
+ }
         },[token])
 
 

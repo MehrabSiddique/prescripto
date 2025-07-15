@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import {AppContext} from '../context/AppContext'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 const MyAppointments = () => {
   const {backendUrl, token, getDoctorsData} = useContext(AppContext)
@@ -24,7 +26,7 @@ const navigate = useNavigate()
 
     
   
-    const {data} = await axios.post(backendUrl + 'api/user/cancel-appointment ' , {appointmentId}, {headers:{token}})
+    const {data} = await axios.post(backendUrl + '/api/user/cancel-appointment ' , {appointmentId}, {headers:{token}})
     
    if (data.success){
              toast.success(data.message)
@@ -48,7 +50,7 @@ const navigate = useNavigate()
     const formData = new FormData()
     
   
-    const {data} = await axios.post(backendUrl + 'api/user/appointments ' , {headers:{token}})
+    const {data} = await axios.post(backendUrl + '/api/user/appointments ' , {headers:{token}})
     
    if (data.success){
              toast.success(data.appointments.reverse())
