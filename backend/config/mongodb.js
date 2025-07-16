@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const connectedDB = async () => {
+const connectDB = async () => {
   try {
     mongoose.connection.on('connected', () => {
-      console.log('MongoDB connected successfully');
+      console.log('Database connected successfully');
     });
 
     mongoose.connection.on('error', (err) => {
@@ -19,4 +19,4 @@ const connectedDB = async () => {
   }
 };
 
-export default connectedDB;
+export default connectDB;

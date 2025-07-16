@@ -13,8 +13,8 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Connect to DB and Cloudinary
-await connectDB();
-await connectCloudinary();
+connectDB();
+connectCloudinary();
 
 // CORS config for frontend origins
 const allowedOrigins = [

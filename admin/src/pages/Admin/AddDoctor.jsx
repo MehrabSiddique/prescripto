@@ -54,6 +54,7 @@ if(data.success){
   setFees('')
   setDegree('')
   setAbout('')
+  setAddress1('')
   setAddress2('')
 
 } else{
