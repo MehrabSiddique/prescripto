@@ -79,7 +79,7 @@ const appointmentsDoctor = async (req, res) => {
   try {
     const { docId } = req.body
 
-    const appointments = await appointmentModel.findById({ docId })
+    const appointments = await appointmentModel.find({ docId })
 
     res.json({ success: true, appointments })
 
