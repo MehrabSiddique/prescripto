@@ -38,4 +38,4 @@ A **MERN stack** project that allows patients, doctors, and admins to manage app
 
 - **User Panel:** [User Live Demo](https://prescripto-front-ecru.vercel.app)  
 - **Doctor/Admin Panel:** [Admin Live Demo](https://prescripto-admin-rose.vercel.app)  
-- **Backend API:** [Backend API]([<LIVE_BACKEND_LINK](https://prescripto-murex.vercel.app)  
+- **Backend API:** [Backend API]([LIVE_BACKEND_LINK](https://prescripto-murex.vercel.app)  
